@@ -1,7 +1,7 @@
 <template>
   <div class="planets">
       <h2>List of planets</h2>
-      <PlanetsList/>>
+      <PlanetsList />
   </div>
 </template>
 

@@ -3,6 +3,7 @@ export default {
   name: 'PlanetsList',
   data () {
     return {
+      loading: false,
       planets: [
         {
           name: 'Tatooine',

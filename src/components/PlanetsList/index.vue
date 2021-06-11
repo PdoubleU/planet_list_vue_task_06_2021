@@ -1,10 +1,13 @@
 <template>
   <div class="PlanetsList">
-     Tu bedzie lista planet
+    <span
+        v-loading="loading"
+        element-loading-text="Loading...">
+    </span>
      <ul>
        <li v-for="planet in planets" :key="planet.name">
-         <p>{{ planet.name}}</p>
-         <p>{{ planet.terrain}}</p>
+         <p>{{ planet.name }}</p>
+         <p>{{ planet.terrain }}</p>
        </li>
      </ul>
   </div>
