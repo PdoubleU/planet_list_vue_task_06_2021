@@ -4,11 +4,38 @@
         v-loading="loading"
         element-loading-text="Loading...">
     </span>
-     <ul>
-       <li v-for="planet in planets" :key="planet.name">
-         <p>{{ planet.name }}</p>
-       </li>
-     </ul>
+     <el-table :data="planets" style="width: 100%">
+       <el-table-column
+          prop="name"
+          label="Name"
+          sortable>
+       </el-table-column>
+       <el-table-column
+          prop="rotation_period"
+          label="Rotation period"
+          sortable>
+       </el-table-column>
+       <el-table-column
+          prop="climate"
+          label="Climate"
+          sortable>
+       </el-table-column>
+       <el-table-column
+          prop="gravity"
+          label="Gravity"
+          sortable>
+       </el-table-column>
+       <el-table-column
+          prop="created"
+          label="Created"
+          sortable>
+       </el-table-column>
+       <el-table-column
+          prop="url"
+          label="Link"
+          sortable>
+       </el-table-column>
+     </el-table>
     <div class="block">
       <el-pagination
         layout="prev, pager, next"
