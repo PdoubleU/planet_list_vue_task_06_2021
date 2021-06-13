@@ -1,15 +1,16 @@
 <template>
   <div class="home">
-    <h2
-    >
-    Home
-    </h2>
+    <WelcomePage />
   </div>
 </template>
 
 <script>
+import WelcomePage from '@/components/WelcomePage'
 
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    WelcomePage
+  }
 }
 </script>
