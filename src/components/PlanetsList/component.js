@@ -13,12 +13,12 @@ export default {
   },
   methods: {
     fetchData (page) {
+      console.log(page)
       const url = generateUrl(page)
       this.loading = true
       axios.get(url)
         .then(response => response.data)
         .then(data => {
-          console.log(data)
           this.planets = data.results
           this.total = data.count
         })
