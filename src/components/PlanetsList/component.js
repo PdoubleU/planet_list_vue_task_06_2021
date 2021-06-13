@@ -18,7 +18,6 @@ export default {
       axios.get(url)
         .then(response => response.data)
         .then(data => {
-          console.log(data)
           this.planets = data.results
           this.total = data.count
         })
@@ -30,7 +29,7 @@ export default {
         })
     }
   },
-  created () {
+  mounted () {
     this.fetchData(1)
   }
 }
