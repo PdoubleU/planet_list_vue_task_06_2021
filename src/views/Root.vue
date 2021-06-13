@@ -7,17 +7,16 @@
         v-slot="{ href, navigate, isActive }"
         custom
         >
-        <li class="link-home" @click="closeBackground">
+        <li class="link-home hidden" @click="toogleVisibility">
             <a :href="href" :active="isActive" @click="navigate">Home</a>
         </li>
         </router-link>
-
         <router-link
         to="/Planets"
         v-slot="{ href, navigate }"
         custom
         >
-        <li class="link-planets" @click="closeBackground">
+        <li class="link-planets" @click="toogleVisibility">
             <a :href="href" @click="navigate">Planets</a>
         </li>
         </router-link>
@@ -32,9 +31,20 @@ export default {
   name: 'Root',
   isActive: null,
   methods: {
-    closeBackground () {
+    toogleVisibility () {
       const image = document.querySelector('.main_background')
-      router.currentRoute.name === 'Planets' ? image.classList.add('invisible') : image.classList.remove('invisible')
+      const homeBtn = document.querySelector('.link-home')
+      const planetsBtn = document.querySelector('.link-planets')
+
+      if (router.currentRoute.name === 'Planets') {
+        image.classList.add('invisible')
+        homeBtn.classList.remove('hidden')
+        planetsBtn.classList.add('hidden')
+      } else {
+        image.classList.remove('invisible')
+        planetsBtn.classList.remove('hidden')
+        homeBtn.classList.add('hidden')
+      }
     }
   }
 }

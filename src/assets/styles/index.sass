@@ -14,6 +14,8 @@ body
     text-align: center
     position: relative
     color: $main-color
+    background: rgb(89,160,175)
+    background: radial-gradient(circle, rgba(89,160,175,1) 0%, rgba(0,0,0,1) 89%, rgba(2,0,36,1) 100%)
     height: 100vh
     padding: 0
     margin: 0
@@ -32,10 +34,17 @@ body
     background-position: center
     background-size: cover
     overflow: hidden
-    transition: all 1s ease-out
+    transition: top 1.3s ease-out
 
 .invisible
+    transition: top 1.3s ease-in
     top: -100%
+
+.link-home.hidden
+    top: -5rem
+.hidden
+    opacity: 0
+    transition: all 1.1s ease-out
 
 .link-home,
 .link-planets
@@ -44,12 +53,15 @@ body
     font-weight: bold
     font-size: 4rem
     color: white
-    top: 85%
+    top: 50%
     left: 50%
+    transform: translate(-50%, -50%)
+    transition: all 1.1s ease-out
     list-style-type: none
+    transition: all 1.1s ease-out .5s
     > a
         text-decoration: none
         color: white
 
 .link-home
-    top: 80%
+    top: 5rem

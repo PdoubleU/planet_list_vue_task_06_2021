@@ -1,11 +1,12 @@
 <template>
   <div class="PlanetsList">
-    <div class="loading_screen" v-if="loading">
+    <div class="table">
+      <div class="loading_screen" v-if="loading">
        <h4>Loading...</h4>
-    </div>
-    <div v-else class="table">
+      </div>
       <el-table
-         :data="planets">
+         :data="planets"
+         v-else>
          <el-table-column
             prop="name"
             label="Name"
