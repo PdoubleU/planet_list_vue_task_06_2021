@@ -17,7 +17,7 @@
         custom
         >
         <li class="link-planets" @click="toogleVisibility">
-            <a :href="href" @click="navigate">Planets</a>
+            <a :href="href" @click="navigate">Enter</a>
         </li>
         </router-link>
     <router-view/>
@@ -28,6 +28,7 @@
 <script>
 import router from '../router/router'
 import Footer from '../components/Footer'
+import renderModel from '../helpers/renderModel'
 
 export default {
   name: 'Root',
@@ -39,17 +40,23 @@ export default {
       const image = document.querySelector('.main_background')
       const homeBtn = document.querySelector('.link-home')
       const planetsBtn = document.querySelector('.link-planets')
+      const canvas = document.querySelector('.model')
 
       if (router.currentRoute.name === 'Planets') {
         image.classList.add('invisible')
+        canvas.classList.add('invisible')
         homeBtn.classList.remove('hidden')
         planetsBtn.classList.add('hidden')
       } else {
         image.classList.remove('invisible')
+        canvas.classList.remove('invisible')
         planetsBtn.classList.remove('hidden')
         homeBtn.classList.add('hidden')
       }
     }
+  },
+  mounted () {
+    renderModel()
   }
 }
 </script>
