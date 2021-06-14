@@ -1,14 +1,20 @@
 // @vue/component
 import axios from 'axios'
 import { generateUrl } from '../../api/api'
+import Table from './Table'
+import Pagination from './Pagination'
 
 export default {
   name: 'PlanetsList',
+  components: {
+    Table,
+    Pagination
+  },
   data () {
     return {
       transitionEnd: false,
       loading: false,
-      total: 60,
+      total: 0,
       planets: []
     }
   },
@@ -30,7 +36,7 @@ export default {
         })
     }
   },
-  created () {
+  mounted () {
     const image = document.querySelector('.main_background')
     image.addEventListener('transitionend', () => {
       setTimeout(() => {
