@@ -6,7 +6,6 @@
 
 <script>
 import Root from './views/Root.vue'
-
 export default {
   name: 'App',
   components: {

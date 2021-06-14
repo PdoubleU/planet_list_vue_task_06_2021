@@ -21,14 +21,19 @@
         </li>
         </router-link>
     <router-view/>
+    <Footer/>
   </span>
 </template>
 
 <script>
 import router from '../router/router'
+import Footer from '../components/Footer'
 
 export default {
   name: 'Root',
+  components: {
+    Footer
+  },
   methods: {
     toogleVisibility () {
       const image = document.querySelector('.main_background')

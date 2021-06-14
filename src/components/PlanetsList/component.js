@@ -3,12 +3,15 @@ import axios from 'axios'
 import { generateUrl } from '../../api/api'
 import Table from './Table'
 import Pagination from './Pagination'
+import Loading from '../Loading'
+import parseDate from '../../helpers/parseDate'
 
 export default {
   name: 'PlanetsList',
   components: {
     Table,
-    Pagination
+    Pagination,
+    Loading
   },
   data () {
     return {
@@ -25,6 +28,9 @@ export default {
       axios.get(url)
         .then(response => response.data)
         .then(data => {
+          data.results.forEach(obj => {
+            obj.created = parseDate(obj.created)
+          })
           this.planets = data.results
           this.total = data.count
         })
@@ -42,7 +48,7 @@ export default {
       setTimeout(() => {
         this.transitionEnd = true
         this.fetchData(1)
-      }, 1000)
+      }, 600)
     })
   }
 }
