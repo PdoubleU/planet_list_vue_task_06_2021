@@ -1,14 +1,23 @@
 // @vue/component
 import axios from 'axios'
 import { generateUrl } from '../../api/api'
+import Table from './Table'
+import Pagination from './Pagination'
+import Loading from '../Loading'
+import parseDate from '../../helpers/parseDate'
 
 export default {
   name: 'PlanetsList',
+  components: {
+    Table,
+    Pagination,
+    Loading
+  },
   data () {
     return {
       transitionEnd: false,
       loading: false,
-      total: 60,
+      total: 0,
       planets: []
     }
   },
@@ -19,6 +28,9 @@ export default {
       axios.get(url)
         .then(response => response.data)
         .then(data => {
+          data.results.forEach(obj => {
+            obj.created = parseDate(obj.created)
+          })
           this.planets = data.results
           this.total = data.count
         })
@@ -30,13 +42,13 @@ export default {
         })
     }
   },
-  created () {
+  mounted () {
     const image = document.querySelector('.main_background')
     image.addEventListener('transitionend', () => {
       setTimeout(() => {
         this.transitionEnd = true
         this.fetchData(1)
-      }, 1000)
+      }, 600)
     })
   }
 }

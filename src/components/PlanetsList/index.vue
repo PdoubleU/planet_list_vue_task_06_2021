@@ -1,52 +1,13 @@
 <template>
   <div class="PlanetsList">
     <div class="table" v-if="transitionEnd">
-      <div class="loading_screen" v-if="loading">
-       <h4>Loading...</h4>
-      </div>
-      <el-table
-         :data="planets"
-         v-else-if="!loading">
-         <el-table-column
-            prop="name"
-            label="Name"
-            sortable>
-         </el-table-column>
-         <el-table-column
-            prop="rotation_period"
-            label="Rotation period"
-            sortable>
-         </el-table-column>
-         <el-table-column
-            prop="climate"
-            label="Climate"
-            sortable>
-         </el-table-column>
-         <el-table-column
-            prop="gravity"
-            label="Gravity"
-            sortable>
-         </el-table-column>
-         <el-table-column
-            prop="created"
-            label="Created"
-            sortable>
-         </el-table-column>
-         <el-table-column
-            prop="url"
-            label="Link"
-            sortable>
-         </el-table-column>
-      </el-table>
-      <div class="block" v-if="!loading">
-         <el-pagination
-         layout="prev, pager, next"
-         :total="total"
-         @current-change="fetchData"
-         @prev-click="fetchData"
-         @next-click="fetchData">
-         </el-pagination>
-      </div>
+      <Loading v-bind:loading="loading"/>
+      <Table
+         v-bind:planets="planets"
+         v-bind:loading="loading"/>
+      <Pagination
+         v-bind:fetch-data="fetchData"
+         v-bind:total="total"/>
     </div>
   </div>
 </template>

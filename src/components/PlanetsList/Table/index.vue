@@ -1,0 +1,38 @@
+<template>
+      <el-table
+         :data="planets"
+         v-if="!loading">
+         <el-table-column
+            prop="name"
+            label="Name"
+            sortable>
+         </el-table-column>
+         <el-table-column
+            prop="rotation_period"
+            label="Rotation period"
+            sortable>
+         </el-table-column>
+         <el-table-column
+            prop="climate"
+            label="Climate"
+            sortable>
+         </el-table-column>
+         <el-table-column
+            prop="gravity"
+            label="Gravity"
+            sortable>
+         </el-table-column>
+         <el-table-column
+            prop="created"
+            label="Created"
+            sortable>
+         </el-table-column>
+         <el-table-column
+            prop="url"
+            label="Link"
+            sortable>
+         </el-table-column>
+      </el-table>
+</template>
+<style src="./style.sass" lang="sass"></style>
+<script src="./component.js" />
