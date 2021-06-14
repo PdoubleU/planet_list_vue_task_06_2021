@@ -6,6 +6,7 @@ export default {
   name: 'PlanetsList',
   data () {
     return {
+      transitionEnd: false,
       loading: false,
       total: 60,
       planets: []
@@ -29,7 +30,13 @@ export default {
         })
     }
   },
-  mounted () {
-    this.fetchData(1)
+  created () {
+    const image = document.querySelector('.main_background')
+    image.addEventListener('transitionend', () => {
+      setTimeout(() => {
+        this.transitionEnd = true
+        this.fetchData(1)
+      }, 1000)
+    })
   }
 }

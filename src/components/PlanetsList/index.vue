@@ -1,12 +1,12 @@
 <template>
   <div class="PlanetsList">
-    <div class="table">
+    <div class="table" v-if="transitionEnd">
       <div class="loading_screen" v-if="loading">
        <h4>Loading...</h4>
       </div>
       <el-table
          :data="planets"
-         v-else>
+         v-else-if="!loading">
          <el-table-column
             prop="name"
             label="Name"
@@ -38,7 +38,7 @@
             sortable>
          </el-table-column>
       </el-table>
-      <div class="block">
+      <div class="block" v-if="!loading">
          <el-pagination
          layout="prev, pager, next"
          :total="total"

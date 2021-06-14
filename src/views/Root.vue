@@ -4,11 +4,11 @@
     </span>
         <router-link
         to="/"
-        v-slot="{ href, navigate, isActive }"
+        v-slot="{ href, navigate }"
         custom
         >
         <li class="link-home hidden" @click="toogleVisibility">
-            <a :href="href" :active="isActive" @click="navigate">Home</a>
+            <a :href="href"  @click="navigate">Home</a>
         </li>
         </router-link>
         <router-link
@@ -29,7 +29,6 @@ import router from '../router/router'
 
 export default {
   name: 'Root',
-  isActive: null,
   methods: {
     toogleVisibility () {
       const image = document.querySelector('.main_background')
