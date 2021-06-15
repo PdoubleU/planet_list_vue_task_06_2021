@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/router'
-import store from './store'
 import { Button, Menu, MenuItem, Loading, Row, Pagination, Table, TableColumn } from 'element-ui'
 
 Vue.use(Button)
@@ -17,6 +16,5 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-  store,
   render: h => h(App)
 }).$mount('#app')

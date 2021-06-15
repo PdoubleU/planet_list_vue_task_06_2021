@@ -1,13 +1,15 @@
 <template>
   <span class="root_container">
-    <span class="main_background">
+    <Loading v-bind:loading="isLoading" />
+    <span class="main_background"></span>
+    <span class="loading_background">
     </span>
         <router-link
         to="/"
         v-slot="{ href, navigate }"
         custom
         >
-        <li class="link-home hidden" @click="toogleVisibility">
+        <li class="link-home hidden" @click="toggleVisibility">
             <a :href="href"  @click="navigate">Home</a>
         </li>
         </router-link>
@@ -16,7 +18,8 @@
         v-slot="{ href, navigate }"
         custom
         >
-        <li class="link-planets" @click="toogleVisibility">
+        <li class="link-planets" @click="toggleVisibility">
+            <p class="main_paragraph">Star Wars<br>Universum</p>
             <a :href="href" @click="navigate">Enter</a>
         </li>
         </router-link>
@@ -29,14 +32,22 @@
 import router from '../router/router'
 import Footer from '../components/Footer'
 import renderModel from '../helpers/renderModel'
+import Loading from '../components/Loading'
+import toggleLoaded from '../helpers/loadingPageScript'
 
 export default {
   name: 'Root',
+  data () {
+    return {
+      isLoading: true
+    }
+  },
   components: {
-    Footer
+    Footer,
+    Loading
   },
   methods: {
-    toogleVisibility () {
+    toggleVisibility () {
       const image = document.querySelector('.main_background')
       const homeBtn = document.querySelector('.link-home')
       const planetsBtn = document.querySelector('.link-planets')
@@ -57,6 +68,10 @@ export default {
   },
   mounted () {
     renderModel()
+    setTimeout(() => {
+      this.isLoading = false
+      toggleLoaded()
+    }, 3000)
   }
 }
 </script>
