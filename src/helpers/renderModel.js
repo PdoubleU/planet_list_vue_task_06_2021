@@ -9,10 +9,17 @@ const renderModel = () => {
 
   {
     const color = 0xADBAC9
-    const intensity = 5
-    const light = new THREE.DirectionalLight(color, intensity)
-    light.position.set(90, 35, 10)
+    const intensity = 8
+    const light = new THREE.PointLight(color, intensity)
+    light.position.set(190, -90, -30)
     scene.add(light)
+  }
+  {
+    const color = 0x223d42
+    const intensity = 5
+    const light2 = new THREE.DirectionalLight(color, intensity)
+    light2.position.set(-100, 50, -190)
+    scene.add(light2)
   }
 
   const fov = 75
@@ -30,7 +37,10 @@ const renderModel = () => {
   const gltfLoader = new GLTFLoader()
   const url = '/death_star/scene.gltf'
   gltfLoader.load(url, (gltf) => {
-    gltf.scene.scale.set(0.05, 0.05, 0.05)
+    const deviceWidth = window.innerWidth
+    deviceWidth < 920
+      ? gltf.scene.scale.set(0.09, 0.09, 0.09)
+      : gltf.scene.scale.set(0.06, 0.06, 0.06)
     model = gltf.scene
     model.rotation.x += 0.6
     scene.add(model)
