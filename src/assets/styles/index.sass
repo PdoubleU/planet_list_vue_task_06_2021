@@ -6,6 +6,17 @@ body
     padding: 0
     margin: 0
     box-sizing: inherit
+
+canvas.model
+    position: absolute
+    display: block
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    width: 100%
+    height: 100%
+    transition: top .8s ease-out .3s
+
 #app
     font-family: Avenir, Helvetica, Arial, sans-serif
     -webkit-font-smoothing: antialiased
@@ -36,6 +47,9 @@ body
     overflow: hidden
     transition: top 1.3s ease-out
 
+canvas.model.invisible
+    transition: top .8s ease-in .3s
+    top: -100%
 .invisible
     transition: top 1.3s ease-in
     top: -100%
@@ -48,6 +62,7 @@ body
 
 .link-home,
 .link-planets
+    z-index: 10
     position: absolute
     text-transform: uppercase
     font-weight: bold
