@@ -1,7 +1,8 @@
 <template>
       <el-table
          :data="planets"
-         v-if="!loading">
+         v-if="!loading"
+         ref="filterTable">
          <el-table-column
             prop="name"
             label="Name"

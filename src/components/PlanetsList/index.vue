@@ -2,12 +2,19 @@
   <div class="PlanetsList">
     <div class="table" v-if="transitionEnd">
       <Loading v-bind:loading="loading"/>
+      <el-input
+        placeholder="Look for anything..."
+        v-model="search"
+        prefix-icon="el-icon-search"
+        @input="filterData"
+        clearable
+      ></el-input>
       <Table
-         v-bind:planets="planets"
-         v-bind:loading="loading"/>
+         :planets="filterData(planets, search)"
+         :loading="loading"/>
       <Pagination
-         v-bind:fetch-data="fetchData"
-         v-bind:total="total"/>
+         :fetch-data="fetchData"
+         :total="total"/>
     </div>
   </div>
 </template>

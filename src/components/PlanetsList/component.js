@@ -18,7 +18,8 @@ export default {
       transitionEnd: false,
       loading: false,
       total: 0,
-      planets: []
+      planets: [],
+      search: ''
     }
   },
   methods: {
@@ -40,6 +41,18 @@ export default {
         .finally(() => {
           this.loading = false
         })
+    },
+    filterData (table, query) {
+      if (!query) return table
+      const filteredTable = table.filter(elem => {
+        // filter is checking each key's value and looking for query:
+        return elem.name.toLowerCase().includes(query.toLowerCase()) ||
+                elem.created.toLowerCase().includes(query.toLowerCase()) ||
+                elem.climate.toLowerCase().includes(query.toLowerCase()) ||
+                elem.gravity.toLowerCase().includes(query.toLowerCase()) ||
+                elem.rotation_period.toLowerCase().includes(query.toLowerCase())
+      })
+      return filteredTable
     }
   },
   mounted () {
