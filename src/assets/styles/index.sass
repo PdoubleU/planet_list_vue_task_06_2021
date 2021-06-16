@@ -38,7 +38,7 @@ body
     background-position: center
     background-size: cover
     overflow: hidden
-    transition: top 1.3s ease-ouu
+    transition: top 1.3s ease-out
 
 .loading_background
     z-index: 100
@@ -62,7 +62,6 @@ canvas.model
     left: 50%
     transform: translate(-50%, -50%)
     width: 95%
-    //height: 75%
     transition: top .8s ease-out .3s
 
 canvas.model.invisible
@@ -77,6 +76,11 @@ canvas.model.invisible
 
 .link-home,
 .link-planets
+    display: none
+
+.link-home.loaded,
+.link-planets.loaded
+    display: block
     z-index: 10
     position: absolute
     text-transform: uppercase
@@ -99,7 +103,7 @@ canvas.model.invisible
         @media (min-width: 720px)
             font-size: 2rem
 
-.link-home
+.link-home.loaded
     left: 20%
     font-size: 2rem
     top: 3rem
