@@ -1,31 +1,33 @@
 <template>
   <span class="root_container">
-    <Loading v-bind:loading="isLoading" />
-    <span class="main_background"></span>
-    <span class="loading_background">
+      <span class="loading_background">
+        </span>
+      <Loading :loading="isLoading" />
+        <span class="main_background"></span>
+              <router-link
+              to="/"
+              v-slot="{ href, navigate }"
+              custom
+
+              >
+              <li class="link-home hidden" @click="toggleVisibility">
+                  <a :href="href"  @click="navigate">Home</a>
+              </li>
+              </router-link>
+              <router-link
+              to="/Planets"
+              v-slot="{ href, navigate }"
+              custom
+
+              >
+              <li class="link-planets" @click="toggleVisibility">
+                  <p class="main_paragraph">Star Wars<br>Universum</p>
+                  <a :href="href" @click="navigate">Enter</a>
+              </li>
+              </router-link>
+          <router-view/>
+          <Footer :class="!isLoading ? classLoaded : null"/>
     </span>
-        <router-link
-        to="/"
-        v-slot="{ href, navigate }"
-        custom
-        >
-        <li class="link-home hidden" @click="toggleVisibility">
-            <a :href="href"  @click="navigate">Home</a>
-        </li>
-        </router-link>
-        <router-link
-        to="/Planets"
-        v-slot="{ href, navigate }"
-        custom
-        >
-        <li class="link-planets" @click="toggleVisibility">
-            <p class="main_paragraph">Star Wars<br>Universum</p>
-            <a :href="href" @click="navigate">Enter</a>
-        </li>
-        </router-link>
-    <router-view/>
-    <Footer/>
-  </span>
 </template>
 
 <script>
@@ -39,7 +41,8 @@ export default {
   name: 'Root',
   data () {
     return {
-      isLoading: true
+      isLoading: true,
+      classLoaded: 'loaded'
     }
   },
   components: {
