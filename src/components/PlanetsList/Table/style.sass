@@ -1,16 +1,14 @@
-.table
-    width: 80%
-    height: 80%
-    display: flex
-    flex-direction: column
-    align-items: center
-    margin: 5rem 0
+.table_container
+    width: 100%
 
 .cell
     color: white
 //Transparent
 .el-table,
 .el-table__expanded-cell
+    font-size: inherit
+    @media (min-width: 1620px)
+        font-size: .6rem
     color: white
     background-color: transparent !important
 
@@ -28,3 +26,9 @@
 //Even line style
 .el-table__row--striped td
     background-color: grey !important
+
+.el-table__expand-icon
+    color: white
+
+.el-table__expand-icon--expanded
+    text-shadow: 0 0 5px white

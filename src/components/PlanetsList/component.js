@@ -17,9 +17,11 @@ export default {
     return {
       transitionEnd: false,
       loading: false,
+      isMobile: true,
       total: 0,
       planets: [],
       search: ''
+
     }
   },
   methods: {
@@ -53,6 +55,12 @@ export default {
                 elem.rotation_period.toLowerCase().includes(query.toLowerCase())
       })
       return filteredTable
+    }
+  },
+  created () {
+    // depending on the screen width the proper table 's mode will be displayed:
+    if (window.innerWidth >= 1080) {
+      this.isMobile = false
     }
   },
   mounted () {
