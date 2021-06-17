@@ -1,6 +1,6 @@
 <template>
-  <span class="root_container">
-    <span class="loading_background"></span>
+  <nav class="root_container">
+    <span class="loading_background" id="navigation"></span>
       <Loading :loading="isLoading" />
       <span class="main_background"></span>
       <router-link
@@ -8,23 +8,23 @@
         v-slot="{ href, navigate }"
         custom
         >
-        <li class="link-home hidden" @click="toggleVisibility">
+        <div class="link-home hidden" @click="toggleVisibility">
           <a :href="href"  @click="navigate">Home</a>
-        </li>
+        </div>
       </router-link>
       <router-link
         to="/Planets"
         v-slot="{ href, navigate }"
         custom
         >
-        <li class="link-planets" @click="toggleVisibility">
+        <div class="link-planets" @click="toggleVisibility">
           <p class="main_paragraph">Star Wars<br>Universum</p>
           <a :href="href" @click="navigate">Enter</a>
-        </li>
+        </div>
       </router-link>
       <router-view/>
       <Footer :class="!isLoading ? classLoaded : null"/>
-  </span>
+  </nav>
 </template>
 
 <script src="./component.js"></script>

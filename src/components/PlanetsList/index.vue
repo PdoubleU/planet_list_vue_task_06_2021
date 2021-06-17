@@ -3,7 +3,8 @@
     <div class="table" v-if="transitionEnd">
       <Loading v-bind:loading="loading"/>
       <el-input
-        placeholder="Look for anything..."
+        class="search_bar"
+        placeholder="Searching..."
         v-model="search"
         prefix-icon="el-icon-search"
         @input="filterData"
@@ -11,7 +12,8 @@
       ></el-input>
       <Table
          :planets="filterData(planets, search)"
-         :loading="loading"/>
+         :loading="loading"
+         :isMobile="isMobile"/>
       <Pagination
          :fetch-data="fetchData"
          :total="total"/>
@@ -21,4 +23,4 @@
 
 <script src="./component.js" />
 
-<style src="./style.sass" lang="sass" scoped></style>
+<style src="./style.sass" lang="sass"></style>
