@@ -1,8 +1,3 @@
-<template>
-    <WelcomePage />
-</template>
-
-<script>
 import WelcomePage from '@/components/WelcomePage'
 
 export default {
@@ -11,4 +6,3 @@ export default {
     WelcomePage
   }
 }
-</script>
