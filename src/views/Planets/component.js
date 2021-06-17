@@ -1,8 +1,3 @@
-<template>
-    <PlanetsList />
-</template>
-
-<script>
 import PlanetsList from '@/components/PlanetsList'
 
 export default {
@@ -11,8 +6,3 @@ export default {
     PlanetsList
   }
 }
-</script>
-
-<style>
-
-</style>

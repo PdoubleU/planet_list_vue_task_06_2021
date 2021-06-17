@@ -32,6 +32,8 @@ const renderModel = () => {
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true })
   renderer.setSize(canvas.clientWidth, canvas.clientHeight)
   renderer.setPixelRatio(window.devicePixelRatio)
+  // add uniqe id to handle this dom element in the app
+  renderer.domElement.id = 'death_star'
   document.body.appendChild(renderer.domElement)
 
   const gltfLoader = new GLTFLoader()
