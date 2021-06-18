@@ -37,5 +37,10 @@ export default {
       this.isLoading = false
       toggleLoaded()
     }, 3000)
+  },
+  watch: {
+    $route (to, from) {
+      this.toggleVisibility()
+    }
   }
 }
