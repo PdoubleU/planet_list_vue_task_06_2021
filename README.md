@@ -6,7 +6,7 @@
 [Let's go to live preview](https://pdoubleu.github.io/planet_list_vue_task_06_2021/)
 
 
-This application is a recruitment task. The main feature is to display lists of all planets available here: https://swapi.dev/api/planets.
+The main feature is to display lists of all planets available here: https://swapi.dev/api/planets.
 App has to be responsive and designed in Vue.
 
 ## Features
