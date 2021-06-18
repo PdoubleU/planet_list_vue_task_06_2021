@@ -3,7 +3,7 @@
       <el-pagination
       layout="prev, pager, next"
       :total="total"
-      v-if="!loading && !error"
+      :class="[!loading && !error ? '' : 'hidden']"
       @current-change="fetchData"
       @prev-click="fetchData"
       @next-click="fetchData">
