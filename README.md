@@ -1,33 +1,44 @@
-# recruitment-task
+# Star Wars Planets List / Vue
 
-Po sklonowaniu repozytorium, zainstaluj wszystkie pakiety z pliku **package.json**. Użyj do tego komendy: 
-
-```yarn install ```
-## Lista planet - vue.js
+![GitHub Logo](/images/app_demo.bmp)
 
 
-Zadanie polega na utworzeniu strony wyświetlającej listę planet. 
+[Let's go to live preview](https://pdoubleu.github.io/planet_list_vue_task_06_2021/)
 
-Lista powinna zostać pobrana z zewnętrznego API znajdującego się pod tym adresem: https://swapi.dev/api/planets.
 
-Do pobrania danych z API wykorzystaj **AJAX**.
+This application is a recruitment task. The main feature is to display lists of all planets available here: https://swapi.dev/api/planets.
+App has to be responsive and designed in Vue.
 
-Zapytania z API idą czasem bardzo długo, więc należałoby dodać loading. 
+## Features
 
-Każdy element listy powinien być ostylowany oraz powinien zawierać następujące parametry:
-* name
-* rotation_period
-* climate
-* gravity
-* created
-* url
+### Show the list
+> The app fetches data from remote API and display it as a table. The table is responsive and was designed with Element UI.
 
-Dodatkowym plusem będzie stworzenie paginacji oraz filtrowania aktualnej strony po którymś z parametrów.
+### Sort and filter
+> The table allows users to sort current pages alphabetically. There is an available search bar, which helps to find particular data in the list, no matter which column or row (the URL is excluded from the search method, due to very similar URLs)
 
-Możesz wykorzystać bibliotekę komponentów **Element UI**. 
+### Pagination
+> The application allows a user to switch between pages.
 
-Finalny projekt zapisz jako repozytorium w w githubie i udostępnij nam link.
+## Used technologies and approaches
 
-W zadaniu staraj się zwracać uwagę na dobre praktyki oraz na to żeby aplikacja była responsywna.
+I have used the following technologies:
 
-Jeśli nie uda Ci się zrobić zadania na czas lub będziesz miał problem z komunikacją z API, możesz skupić się tylko na ostylowaniu listy dla jakichś statycznych danych oraz na responsywności.
+    1. Vue
+    2. Vue Router
+    3. JavaScript ES6
+    4. HTML 5
+    5. SASS
+    6. Element UI
+    7. REST API
+    8. Threejs
+
+## Used tools:
+
+The followed tools were used to finalize the project:
+
+    1. Visual Studio Code
+    2. GIT - as a control version system
+## Interesting facts about the project:
+
+>  This is the first time I had the opportunity to play with Threejs. I found this library very interesting, it gives you so many opportunities to improve your website design.

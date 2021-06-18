@@ -3,6 +3,7 @@
     <div class="table" v-if="transitionEnd">
       <Loading :loading="isLoading" :error="isError"/>
       <el-input
+        v-if="!isLoading && !isError"
         class="search_bar"
         placeholder="Searching..."
         v-model="search"
