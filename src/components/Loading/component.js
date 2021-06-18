@@ -1,5 +1,5 @@
 // @vue/component
 export default {
   name: 'Loading',
-  props: ['loading']
+  props: ['loading', 'error']
 }

@@ -1,5 +1,5 @@
 // @vue/component
 export default {
   name: 'Table',
-  props: ['planets', 'loading', 'isMobile']
+  props: ['planets', 'loading', 'error', 'isMobile']
 }
