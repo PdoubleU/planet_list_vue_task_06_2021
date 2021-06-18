@@ -1,7 +1,7 @@
 <template>
   <div class="PlanetsList">
     <div class="table" v-if="transitionEnd">
-      <Loading v-bind:loading="loading"/>
+      <Loading :loading="isLoading" :error="isError"/>
       <el-input
         class="search_bar"
         placeholder="Searching..."
@@ -12,11 +12,14 @@
       ></el-input>
       <Table
          :planets="filterData(planets, search)"
-         :loading="loading"
+         :loading="isLoading"
+         :error="isError"
          :isMobile="isMobile"/>
       <Pagination
          :fetch-data="fetchData"
-         :total="total"/>
+         :total="total"
+         :loading="isLoading"
+         :error="isError"/>
     </div>
   </div>
 </template>

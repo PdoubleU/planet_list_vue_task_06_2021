@@ -16,7 +16,8 @@ export default {
   data () {
     return {
       transitionEnd: false,
-      loading: false,
+      isLoading: false,
+      isError: false,
       isMobile: true,
       total: 0,
       planets: [],
@@ -27,7 +28,7 @@ export default {
   methods: {
     fetchData (page) {
       const url = generateUrl(page)
-      this.loading = true
+      this.isLoading = true
       axios.get(url)
         .then(response => response.data)
         .then(data => {
@@ -38,10 +39,12 @@ export default {
           this.total = data.count
         })
         .catch(err => {
+          this.isError = true
           console.log(err)
         })
         .finally(() => {
-          this.loading = false
+          if (this.isError) return
+          this.isLoading = false
         })
     },
     filterData (table, query) {

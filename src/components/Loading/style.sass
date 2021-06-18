@@ -7,9 +7,17 @@
     color: white
     font-size: 2rem
     text-align: center
-    animation: pulsate 1.5s linear infinite
     @media (min-width: 720px)
         font-size: 1.5rem
+
+.loading_screen h4
+    animation: pulsate 1.5s linear infinite
+
+.loading_screen h4.no_animate
+    animation: none
+
+.no_animate
+    animation: none
 
 @keyframes pulsate
     0%

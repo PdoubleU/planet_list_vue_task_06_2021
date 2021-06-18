@@ -2,9 +2,8 @@
    <span class="table_container">
       <el-table
          :data="planets"
-         v-if="!loading && isMobile"
+         v-if="!loading && !error && isMobile"
          ref="filterTable"
-         style="width: 100%"
          >
          <el-table-column
             prop="name"
@@ -26,7 +25,7 @@
 
       <el-table
          :data="planets"
-         v-if="!loading && !isMobile"
+         v-if="!loading && !error && !isMobile"
          ref="filterTable"
          >
          <el-table-column
